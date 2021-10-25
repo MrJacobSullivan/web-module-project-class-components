@@ -5,23 +5,20 @@ import TodoForm from './components/TodoForm'
 class App extends React.Component {
   constructor() {
     super()
-    this.state = { todos: [{ task: 'Dishes', id: 1, completed: false }] }
+    this.state = { todos: [] }
   }
 
-  // handle toggle item
   handleToggleItem = (clickedTodo) => {
     this.setState({
       ...this.state,
       todos: this.state.todos.map((todo) => {
-        if (todo.id === clickedTodo.id) {
-          return { ...todo, completed: todo.completed ? false : true }
-        }
-        return todo
+        return todo.id === clickedTodo.id
+          ? { ...todo, completed: todo.completed ? false : true }
+          : todo
       }),
     })
   }
 
-  // handle clear items
   handleClearItems = () => {
     this.setState({
       ...this.state,
@@ -29,7 +26,6 @@ class App extends React.Component {
     })
   }
 
-  // handle add item
   handleAddItem = (newTodo) => {
     this.setState({ ...this.state, todos: [...this.state.todos, newTodo] })
   }
@@ -38,8 +34,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} handleToggleItem={this.handleToggleItem} />
-        <TodoForm handleAddItem={this.handleAddItem} handleClearItems={this.handleClearItems} />
+        <TodoList todos={this.state.todos} toggle={this.handleToggleItem} />
+        <TodoForm add={this.handleAddItem} clear={this.handleClearItems} />
       </div>
     )
   }

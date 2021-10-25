@@ -13,18 +13,17 @@ class TodoForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    // create new todo
     const newTodo = {
       task: this.state.task,
       id: Date.now(),
       completed: false,
     }
 
-    this.props.handleAddItem(newTodo)
+    this.props.add(newTodo)
     this.setState({ ...this.state, task: '' })
   }
 
-  handleClear = () => this.props.handleClearItems()
+  handleClear = () => this.props.clear()
 
   render() {
     return (
