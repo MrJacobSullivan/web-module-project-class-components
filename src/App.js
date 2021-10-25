@@ -9,13 +9,15 @@ class App extends React.Component {
   }
 
   // handle toggle item
-  handleToggleItem = (item) => {}
+  handleToggleItem = (todo) => null
 
   // handle clear items
   handleClearItems = () => console.log('clear')
 
   // handle add item
-  handleAddItem = (newTodo) => console.log('add', newTodo)
+  handleAddItem = (newTodo) => {
+    this.setState({ ...this.state, todos: [...this.state.todos, newTodo] })
+  }
 
   render() {
     return (
