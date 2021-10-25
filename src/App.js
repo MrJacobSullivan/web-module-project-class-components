@@ -22,7 +22,12 @@ class App extends React.Component {
   }
 
   // handle clear items
-  handleClearItems = () => console.log('clear')
+  handleClearItems = () => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter((todo) => !todo.completed),
+    })
+  }
 
   // handle add item
   handleAddItem = (newTodo) => {
