@@ -9,7 +9,7 @@ class App extends React.Component {
   }
 
   // handle toggle item
-  handleToggleItem = (todo) => null
+  handleToggleItem = (todo) => console.log('clicked', todo.task)
 
   // handle clear items
   handleClearItems = () => console.log('clear')
@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} handleToggleItem={this.handleToggleItem} />
         <TodoForm handleAddItem={this.handleAddItem} handleClearItems={this.handleClearItems} />
       </div>
     )

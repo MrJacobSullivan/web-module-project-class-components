@@ -1,8 +1,12 @@
 import React from 'react'
 
 class Todo extends React.Component {
+  handleClick = () => {
+    this.props.handleToggleItem(this.props.todo)
+  }
+
   render() {
-    return <div>{this.props.todo.task}</div>
+    return <p onClick={this.handleClick}>{this.props.todo.task}</p>
   }
 }
 
