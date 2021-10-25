@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './Todo.css'
+
 class Todo extends React.Component {
   handleClick = () => {
     this.props.toggle(this.props.todo)
@@ -7,10 +9,7 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <div
-        onClick={this.handleClick}
-        style={{ textDecoration: this.props.todo.completed && 'line-through' }}
-      >
+      <div onClick={this.handleClick} className={this.props.todo.completed ? 'completed' : null}>
         {this.props.todo.task}
       </div>
     )
