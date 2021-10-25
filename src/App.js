@@ -9,7 +9,17 @@ class App extends React.Component {
   }
 
   // handle toggle item
-  handleToggleItem = (todo) => console.log('clicked', todo.task)
+  handleToggleItem = (clickedTodo) => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === clickedTodo.id) {
+          return { ...todo, completed: todo.completed ? false : true }
+        }
+        return todo
+      }),
+    })
+  }
 
   // handle clear items
   handleClearItems = () => console.log('clear')

@@ -6,7 +6,14 @@ class Todo extends React.Component {
   }
 
   render() {
-    return <p onClick={this.handleClick}>{this.props.todo.task}</p>
+    return (
+      <p
+        onClick={this.handleClick}
+        style={{ textDecoration: this.props.todo.completed && 'line-through' }}
+      >
+        {this.props.todo.task}
+      </p>
+    )
   }
 }
 
