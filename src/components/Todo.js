@@ -2,7 +2,7 @@ import React from 'react'
 
 class Todo extends React.Component {
   render() {
-    return <div>{this.props.todo.name}</div>
+    return <div>{this.props.todo.task}</div>
   }
 }
 
